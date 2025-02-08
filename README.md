@@ -1,20 +1,16 @@
-# Purvaansh Preschool Website
+# Purvaansh Preschool 🌟
 
-🚀 **Purvaansh Preschool** is a modern and responsive website designed to provide an engaging platform for parents and educators. 
+🚀 **Purvaansh Preschool** is a modern, responsive website designed to provide an engaging and interactive platform for parents and educators. It was meticulously crafted in **July 2024** to offer seamless navigation, a visually appealing interface, and essential functionalities for a preschool environment.
 
-## 🌐 Live Demo
-🔗 [Visit Website](https://purvaanshpreschool.com)
+🔗 [Live Website](https://purvaanshpreschool.com)  |  💻 [GitHub Repository](https://github.com/sk-mallick/Purvaansh-Preschool)
 
-## 📂 Source Code
-💻 [GitHub Repository](https://github.com/sk-mallick/Purvaansh-Preschool)
-
-## 📌 Features
-- 🎨 **Attractive UI/UX** with a user-friendly interface
+## ✨ Features
+- 🎨 **Elegant UI/UX** for an immersive experience
 - 📱 **Fully Responsive** design for all devices
-- 📷 **Image Gallery** with interactive modal pop-ups
+- 📷 **Interactive Gallery** with modal pop-ups
 - 📅 **Events Section** showcasing preschool activities
 - 📋 **Contact Form** for easy communication
-- ⚡ **Optimized Performance** for a smooth experience
+- ⚡ **Optimized Performance** ensuring smooth user interaction
 
 ## 🛠️ Technologies Used
 - **JavaScript** (36.8%)
@@ -24,7 +20,7 @@
 - **PHP** (0.1%)
 
 ## 🎥 Demo Video
-📹 *Watch the demo video attached to see the website in action!*
+📹 *Watch the attached demo video to explore the website in action!*
 
 ## 📩 Feedback & Contributions
 Feel free to open issues or contribute to improve the project! 😊
