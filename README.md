@@ -1,6 +1,7 @@
 **🗓️ Created: July 2024**
 
 **# Purvaansh Preschool 🌟**
+---
 
 🚀 **Purvaansh Preschool** is a modern, responsive website designed to provide an engaging and interactive platform for parents and educators. It was meticulously crafted in **July 2024** to offer seamless navigation, a visually appealing interface, and essential functionalities for a preschool environment.
 
@@ -21,11 +22,7 @@
 - **HTML** (14.1%)
 - **PHP** (0.1%)
 
-## 🎥 Demo Video
-📹 *Watch the attached demo video to explore the website in action!*
 
-## 📩 Feedback & Contributions
-Feel free to open issues or contribute to improve the project! 😊
 
 ---
 ### 📌 Stay Connected
