@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Purvaansh Preschool</title>
+    <link rel="icon" type="image/png" href="img/logo1.png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta content="Purvaansh Preschool" name="keywords">
+    <meta content="Purvaansh Preschool" name="description">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <style>
+            /* Preloader Styles */
+            #preloader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #000000;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                transition: opacity 0.5s ease, visibility 0.5s ease;
+            }
+
+            #preloader.hidden {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            #preloader img {
+                width: 200px;
+                height: auto;
+                margin-bottom: 20px;
+                /* Space between logo and GIF */
+            }
+        </style>
+
+        <img src="img/logo1.png" alt="Logo">
+        <img src="loading.gif" alt="Loading...">
+
+        <script>
+            // JavaScript to hide the preloader after 3 seconds and redirect to home.html
+            window.addEventListener('load', function() {
+                const preloader = document.getElementById('preloader');
+                setTimeout(function() {
+                    preloader.classList.add('hidden');
+                    document.body.classList.add('loaded');
+                    setTimeout(function() {
+                        window.location.href = 'home.html';
+                    }, 1000); // Additional delay before redirection (1 second)
+                }, 3000); // 3000 milliseconds = 3 seconds to hide preloader
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>

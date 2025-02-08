@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Purvaansh Preschool</title>
+    <link rel="icon" type="image/png" href="img/logo1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Purvaansh Preschool" name="keywords">
+    <meta content="Purvaansh Preschool" name="description">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <style>
+            /* Custom Styles */
+            .navbar-brand {
+                font-size: 30px;
+                margin-left: 10px;
+            }
+
+            @media (min-width: 768px) {
+                .navbar-brand {
+                    font-size: 40px;
+                }
+            }
+
+            @media (min-width: 992px) {
+                .navbar-brand {
+                    font-size: 50px;
+                }
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                background-color: #f4f4f4;
+            }
+
+            h1 {
+                text-align: center;
+                margin-top: 20px;
+                color: #333;
+            }
+
+            #instafeed-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                /* Add gap between items */
+                padding: 20px;
+            }
+
+            #instafeed-container a {
+                display: block;
+                position: relative;
+                width: calc(25% - 15px);
+                /* Adjust width to account for the gap */
+                box-sizing: border-box;
+                overflow: hidden;
+                /* Hide overflow */
+                border-radius: 5px;
+                /* Rounded corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                /* Optional: Add a subtle shadow */
+                transition: transform 0.3s;
+            }
+
+            #instafeed-container a:hover {
+                transform: scale(1.05);
+            }
+
+            #instafeed-container a img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 5px;
+                /* Rounded corners */
+            }
+
+            .description {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                /* Semi-transparent background */
+                color: #fff;
+                padding: 10px;
+                box-sizing: border-box;
+                font-size: 12px;
+                display: none;
+                /* Hidden initially */
+                border-radius: 0 0 10px 10px;
+                /* Curved bottom corners */
+                transform: translateY(100%);
+                transition: transform 0.3s, opacity 0.3s;
+                opacity: 0;
+                /* Initially hidden */
+                white-space: pre-line;
+                /* Allow multiple lines */
+            }
+
+            #instafeed-container a:hover .description {
+                display: block;
+                /* Show description on hover */
+                transform: translateY(0);
+                /* Slide up to show */
+                opacity: 1;
+                /* Fade in */
+            }
+
+            /* Description Modal */
+            #descriptionModal {
+                display: none;
+                /* Hidden by default */
+                position: fixed;
+                /* Stay in place */
+                bottom: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                /* Black background with opacity */
+                color: #fff;
+                padding: 20px;
+                box-sizing: border-box;
+                font-size: 16px;
+                text-align: center;
+                z-index: 1000;
+                /* Ensure it's on top */
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+
+            #descriptionModal .close-description {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                font-size: 20px;
+                font-weight: bold;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            /* Modal styles */
+            .modal {
+                display: none;
+                /* Hidden by default */
+                position: fixed;
+                /* Stay in place */
+                z-index: 1;
+                /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%;
+                /* Full width */
+                height: 100%;
+                /* Full height */
+                overflow: hidden;
+                /* Hide overflow */
+                background-color: rgba(0, 0, 0, 0.9);
+                /* Black w/ opacity */
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal-content {
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+                /* Ensure the image scales while maintaining aspect ratio */
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                animation: zoom 0.6s;
+                overflow: hidden;
+                /* Hide overflow */
+                position: relative;
+                /* Ensure relative positioning for description */
+            }
+
+            @keyframes zoom {
+                from {
+                    transform: scale(0)
+                }
+
+                to {
+                    transform: scale(1)
+                }
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #fff;
+                font-size: 30px;
+                font-weight: bold;
+                transition: 0.3s;
+                z-index: 2;
+                cursor: pointer;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            .close:hover,
+            .close:focus {
+                background-color: rgba(0, 0, 0, 0.2);
+                /* Add a slight background color on hover/focus */
+            }
+
+            /* Swiper styles */
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+            }
+
+            .swiper-slide {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                /* Ensure relative positioning for description */
+            }
+
+            .swiper-slide img {
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+            }
+
+            /* Responsive styles */
+            @media only screen and (max-width: 768px) {
+                #instafeed-container a {
+                    width: calc(50% - 15px);
+                    /* Display 2 photos per line */
+                }
+            }
+
+            @media only screen and (max-width: 600px) {
+                #instafeed-container a {
+                    width: calc(50% - 15px);
+                    /* Display 2 photos per line */
+                }
+            }
+
+            @media only screen and (max-width: 400px) {
+                #instafeed-container a {
+                    width: calc(100% - 15px);
+                    /* Display 1 photo per line */
+                }
+            }
+        </style>
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="" class="navbar-brand font-weight-bold text-secondary">
+                <img src="img/logo.png" alt="Teddy Bear Image" style="height: 60px; width: auto;">
+                <span class="text-primary">Purvaansh Preschool</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="home.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link active">About</a>
+                    <!-- <a href="class.html" class="nav-item nav-link">Classes</a> -->
+                    <!-- <a href="team.html" class="nav-item nav-link">Teachers</a> -->
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <!-- <div class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a><div class="dropdown-menu rounded-0 m-0"><a href="blog.html" class="dropdown-item">Blog Grid</a><a href="single.html" class="dropdown-item">Blog Detail</a></div></div> -->
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSePfwkZbsBbRMtjGnoUe4qpLjhv8Sc4uSAvDuz-aKgecik4aQ/viewform?usp=sf_link"
+                    class="btn btn-primary px-4">Join Class</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+            <h3 class="display-3 font-weight-bold text-white">Gallery</h3>
+            <div class="d-inline-flex text-white">
+                <p class="m-0">
+                    <a class="text-white" href="">Home</a>
+                </p>
+                <p class="m-0 px-2">/</p>
+                <p class="m-0">Gallery</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+    <!-- Gallery Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5">
+                    <span class="px-2">Our Gallery</span>
+                </p>
+                <h1 class="mb-4">Our Kids School Gallery</h1>
+            </div>
+
+
+
+	<div id="instafeed-container"></div>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <span class="close">×</span>
+                <img class="modal-content" id="img01">
+            </div>
+
+	<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+            <script type="text/javascript">
+                var userFeed = new Instafeed({
+                    get: 'user',
+                    target: "instafeed-container",
+                    resolution: 'low_resolution',
+			accessToken: 'IGQWRNRWhaTFpXbU0wMkhVc3czenVoVGFzRC1uSl9FcEpNczVrbm5ISXN5dlVReGE1b3p1a0F2SEtzYVRoZAXF0VGpIZAkhKdFJIUkJKb2FoQlF5emdQSGJpX3kyQjJGYXB5MjctN2RVZAVFMRUVpQkRRVWZATRTh2LXcZD'
+                });
+                userFeed.run();
+                // Modal functionality
+                var modal = document.getElementById("myModal");
+                var modalImg = document.getElementById("img01");
+                var closeModal = document.getElementsByClassName("close")[0];
+                document.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'IMG' && e.target.parentElement.tagName === 'A') {
+                        e.preventDefault();
+                        // Redirect to photos.html when an image is clicked
+                        window.location.href = 'photos.html';
+                    } else if (e.target.classList.contains('close')) {
+                        // Close modal when clicking on the close button
+                        modal.style.display = "none";
+                    }
+                });
+            </script>
+
+        </div>
+    </div>
+    <!-- Gallery End -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-white mt-5 py-4 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <!-- First Column -->
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">&nbsp;&nbsp;Purvaansh Preschool</h3>
+                <div class="pl-3">
+                    <h5 class="text-white">Address</h5>
+                    <p>Plot no.: 79/3010, Bhagaban Pur <br>PO: Raghunathpur, PS: Nandankanan <br>Bhubaneswar, PIN:
+                        754005 </p>
+                </div>
+                <div class="pl-3">
+                    <h5 class="text-white">Email</h5>
+                    <p>
+                        <a href="mailto:purvaanshpreschool@gmail.com"
+                            class="text-white">purvaanshpreschool@gmail.com</a>
+                    </p>
+                </div>
+                <div class="pl-3">
+                    <h5 class="text-white">Webide</h5>
+                    <p>
+                        <a href="https://purvaanshpreschool.com/" class="text-white">purvaanshpreschool.com</a>
+                    </p>
+                </div>
+                <div class="pl-3">
+                    <h5 class="text-white">Phone</h5>
+                    <p>
+                        <a href="tel:+919439271073" class="text-white">+91 9439271073</a>
+                    </p>
+                </div>
+            </div>
+            <!-- Second Column -->
+            <div class="col-lg-2 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Quick Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white mb-2" href="home.html">
+                        <i class="fa fa-angle-right mr-2"></i>Home </a>
+                    <a class="text-white mb-2" href="about.html">
+                        <i class="fa fa-angle-right mr-2"></i>About Us </a>
+                    <a class="text-white mb-2" href="gallery.html">
+                        <i class="fa fa-angle-right mr-2"></i>Our Gallery </a>
+                    <a class="text-white mb-2" href="#">
+                        <i class="fa fa-angle-right mr-2"></i>Our Teachers </a>
+                    <a class="text-white mb-2" href="#">
+                        <i class="fa fa-angle-right mr-2"></i>Our Blog </a>
+                    <a class="text-white" href="contact.html">
+                        <i class="fa fa-angle-right mr-2"></i>Contact Us </a>
+                </div>
+            </div>
+            <!-- Third Column -->
+            <div class="col-lg-6 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">MAP</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1869.8934357514704!2d85.826646!3d20.3916756!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190f001c31a7c1%3A0x41244e61579d87c4!2sPurvaansh%20Preschool!5e0!3m2!1sen!2sin!4v1718920630133!5m2!1sen!2sin"
+                    width="100%" height="350" style="border:1;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, .2);;">
+            <p class="m-0 text-center text-white"> © <a class="text-primary font-weight-bold" href="#">Purvaansh
+                    Preschool</a>. All Rights Reserved. Designed by <a class="text-primary font-weight-bold"
+                    href="#####"> Subham Kumar Mallick</a>
+            </p>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary p-3 back-to-top">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
